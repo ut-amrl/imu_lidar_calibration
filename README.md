@@ -1,3 +1,7 @@
+# AMRL Changes
+
+This code has been tested on Ubuntu 20.04 with the Ouster 128 and VectorNav VN-300 IMU. 
+
 # imu_lidar_calibration
 ## Target-free Extrinsic Calibration of a 3D Lidar and an IMU
 
