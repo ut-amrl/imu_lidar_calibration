@@ -31,7 +31,7 @@ find_package(Eigen3 REQUIRED)
 find_package(Boost REQUIRED COMPONENTS system filesystem thread date_time)
 #find_package(PCL REQUIRED)
 #find_package(Ceres REQUIRED)
-#find_package(GTSAM REQUIRED)
+find_package(GTSAM REQUIRED)
 
 #link_directories(${PCL_LIBRARY_DIRS})
 #add_definitions(${PCL_DEFINITIONS})
@@ -60,7 +60,7 @@ include_directories(
         ${catkin_INCLUDE_DIRS}
 #        ${PCL_INCLUDE_DIRS}
 #        ${CERES_INCLUDE_DIRS}
-#        ${GTSAM_INCLUDE_DIR}
+       ${GTSAM_INCLUDE_DIR}
 )
 
 # Set link libraries used by all binaries
@@ -69,7 +69,7 @@ list(APPEND thirdparty_libraries
         ${catkin_LIBRARIES}
         ${PCL_LIBRARIES}
         ${CERES_LIBRARIES}
-        #        gtsam
+               gtsam
         )
 
 ##################################################
@@ -93,7 +93,8 @@ target_include_directories(linkalibr_lib PUBLIC src)
 add_executable(ros_test_node src/ros_linkalibr_test.cpp)
 target_link_libraries(ros_test_node linkalibr_lib ${catkin_LIBRARIES})
 
+add_executable(ros_calib_init src/ros_calib_init.cpp)
+target_link_libraries(ros_calib_init linkalibr_lib ${catkin_LIBRARIES})
 
-
-
-
+add_executable(ros_calib_init_optimizer src/ros_calib_init_optimizer.cpp)
+target_link_libraries(ros_calib_init_optimizer linkalibr_lib ${catkin_LIBRARIES})
